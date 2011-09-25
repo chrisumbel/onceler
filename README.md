@@ -16,6 +16,13 @@ TOTP
     
     // get the value for the current time
     console.log(totp.now());
+    
+    // verify a user supplied value
+    if(totp.verify(1234567)) {
+        console.log('access granted!');
+    } else {
+        console.log('access denied!');
+    }
 
 LICENSE
 -------

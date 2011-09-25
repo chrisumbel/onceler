@@ -32,6 +32,12 @@ describe('TOTP', function() {
 	var totp = new TOTP('IFAUCQKCIJBEE===');
 	expect(totp.now()).toBeGreaterThan(0);
     });
+
+    it('should verify', function() {
+	var totp = new TOTP('IFAUCQKCIJBEE===');
+        var x = totp.now();
+	expect(totp.verify(x)).toBeTruthy();
+    });
     
     it('should get value at an index of a specified digit size', function() {
 	var totp = new TOTP('IFAUCQKCIJBEE===', 8);

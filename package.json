@@ -1,7 +1,7 @@
 {
   "name": "onceler",
   "description": "OTP (One Time Password) facilities for node.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": ">=0.2.6"
   },
