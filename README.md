@@ -23,6 +23,17 @@ TOTP
     } else {
         console.log('access denied!');
     }
+    
+OTP digit size and time interval can be specified as such:
+
+    // 60 second interval
+    var totp = new TOTP('IFAUCQKCIJBEE===', null, 60);
+    
+    // 12 digit size
+    var totp = new TOTP('IFAUCQKCIJBEE===', 12);
+
+    // both
+    var totp = new TOTP('IFAUCQKCIJBEE===', 12, 60);
 
 LICENSE
 -------
