@@ -24,7 +24,7 @@ var TOTP = require('lib/onceler/totp');
 
 describe('TOTP', function() {
     it('should get value at an index', function() {
-	var totp = new TOTP('IFAUCQI=');
-	totp.now();
+	var totp = new TOTP('IFAUCQKCIJBEE===');
+	expect(totp.at(650269)).toBe(465467);
     });     
 });
