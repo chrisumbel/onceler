@@ -11,13 +11,13 @@ TOTP
     // create a TOTP object for a given base-32 encoded secret.
     var totp = new TOTP('IFAUCQKCIJBEE===');
     
-    // get the value at a specified time index
+    // get the password at a specified time index
     console.log(totp.at(650269));
     
-    // get the value for the current time
+    // get the password for the current time
     console.log(totp.now());
     
-    // verify a user supplied value
+    // verify a user supplied password
     if(totp.verify(1234567)) {
         console.log('access granted!');
     } else {
@@ -34,6 +34,30 @@ OTP digit size and time interval can be specified as such:
 
     // both
     var totp = new TOTP('IFAUCQKCIJBEE===', 12, 60);
+
+HOTP
+----
+
+HOTP is also supported.
+
+    var HOTP = require('onceler').HOTP;
+    
+    // create an HOTP object for a given base-32 encoded secret.
+    var hotp = new HOTP('IFAUCQKCIJBEE===');
+    
+    // hotp.verify(password, count)
+    if(hotp.verify(581561, 0)) {
+        console.log('access granted!');
+    } else {
+        console.log('access denied!');
+    }
+    
+    if(hotp.verify(224556, 1)) {
+        console.log('access granted!');
+    } else {
+        console.log('access denied!');
+    }
+
 
 LICENSE
 -------

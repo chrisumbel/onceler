@@ -1,7 +1,7 @@
 {
   "name": "onceler",
   "description": "OTP (One Time Password) facilities for node.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "node": ">=0.2.6"
   },
@@ -10,7 +10,7 @@
     "crypto": "0.0.1"
   },
   "author": "Chris Umbel <chris@chrisumbel.com>",
-  "keywords": ["otp", "totp", "one-time", "password"],
+  "keywords": ["otp", "hotp", "totp", "one-time", "password"],
   "main": "./lib/onceler/index.js",
   "maintainers": [{
     "name": "Chris Umbel",

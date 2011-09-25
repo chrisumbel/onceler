@@ -20,34 +20,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.                                                                   
 */
 
-var sys = require('sys');
-var OTP = require('./otp');
+var HOTP = require('lib/onceler/hotp');
 
-function TOTP(secret, digits, interval) {
-    OTP.call(this, secret, digits);
-    this.interval = interval || 30;
-}
-
-module.exports = TOTP;
-sys.inherits(TOTP, OTP);
-
-function timeCode(x) {
-    return Math.floor(x / this.interval);;
-}
-
-function now() {
-    return this.at(Math.floor(new Date().getTime() / 1000));
-}
-
-function at(x) {
-    return OTP.prototype.at.call(this, this.timeCode(x));
-}
-
-function verify(x) {
-    return this.now() == x;
-}
-
-TOTP.prototype.at = at;
-TOTP.prototype.now = now;
-TOTP.prototype.timeCode = timeCode;
-TOTP.prototype.verify = verify;
+describe('HOTP', function() {
+    it('should get value at an index', function() {
+	var hotp = new HOTP('IFAUCQKCIJBEE===');
+	expect(hotp.verify(581561, 0)).toBeTruthy();
+	expect(hotp.verify(224556, 1)).toBeTruthy();
+    });
+});
