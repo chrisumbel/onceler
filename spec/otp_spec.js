@@ -35,5 +35,5 @@ describe('otp', function() {
     it('should get value at an index', function() {
 	var otp = new OTP('IFAUCQI=');
 	expect(otp.at(32000)).toBe(927526);
-    });    
+    });
 });
