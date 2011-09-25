@@ -26,7 +26,6 @@ describe('TOTP', function() {
     it('should get value at an index', function() {
 	var totp = new TOTP('IFAUCQKCIJBEE===');
 	expect(totp.at(650269)).toBe(465467);
-	expect(totp.at(650269)).toBe(465467);        
     });
     
     it('should get value for now', function() {
