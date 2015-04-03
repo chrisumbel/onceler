@@ -23,6 +23,14 @@ TOTP
     } else {
         console.log('access denied!');
     }
+
+    // Verify a user supplied password at a given time within a tolerance window.
+    // By default, `window` is 6, which means 6 intervals of tolerance.
+    if(totp.verify(1234567, timeInSeconds, window)) {
+        console.log('access granted!');
+    } else {
+        console.log('access denied!');
+    }
     
 OTP digit size and time interval can be specified as such:
 
