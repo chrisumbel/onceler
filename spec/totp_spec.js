@@ -38,6 +38,16 @@ describe('TOTP', function() {
         var x = totp.now();
 	expect(totp.verify(x)).toBeTruthy();
     });
+
+    it('should verify with a window of allowed values', function() {
+    var totp = new TOTP('IFAUCQKCIJBEE===');
+    var now = 1428054585; // Test time (in seconds)
+    expect(totp.verify(331409, now)).toBeTruthy(); // Two values in the past
+    expect(totp.verify(101970, now)).toBeTruthy(); // One value in the past
+    expect(totp.verify(445404, now)).toBeTruthy(); // Exact value for test time
+    expect(totp.verify(424176, now)).toBeTruthy(); // One value in the future
+    expect(totp.verify(934182, now)).toBeTruthy(); // Two values in the future
+    });
     
     it('should get value at an index of a specified digit size', function() {
 	var totp = new TOTP('IFAUCQKCIJBEE===', 8);
